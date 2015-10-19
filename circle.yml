@@ -7,7 +7,7 @@ dependencies:
     - "~/docker"
 
   override:
-    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; else docker build -t pdflatex . && mkdir -p ~/docker && docker save pdflatex > ~/docker/image.tar fi
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; else docker build -t pdflatex . && mkdir -p ~/docker && docker save pdflatex > ~/docker/image.tar; fi
     
 test:
   override:
