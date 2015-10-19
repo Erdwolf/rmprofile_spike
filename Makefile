@@ -1,5 +1,5 @@
 
-PDFLATEX := docker run -it --rm -v `pwd`:/mnt -w /mnt pdflatex pdflatex
+PDFLATEX := docker run -it -v `pwd`:/mnt -w /mnt pdflatex pdflatex
 
 PDFLATEX_OPTS := -interaction="nonstopmode" \
 	              -halt-on-error
