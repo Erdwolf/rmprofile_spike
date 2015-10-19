@@ -2,9 +2,11 @@ machine:
   services:
     - docker
 
-test:
+dependencies:
   cache_directories:
     - ".docker"
+
+test:
   override:
     - make
 
