@@ -11,8 +11,8 @@ build/rmprofile.pdf: rmprofile.tex rmprofile.cls .docker/pdflatex.tar
 	${PDFLATEX} ${PDFLATEX_OPTS} -output-directory="build" $<
 
 
-.docker/pdflatex.tar: Dockerfile
-	docker build -t pdflatex .
+.docker/pdflatex.tar: pdflatex/Dockerfile
+	docker build -t pdflatex pdflatex
 	mkdir -p .docker
 	docker save pdflatex > .docker/pdflatex.tar
 
