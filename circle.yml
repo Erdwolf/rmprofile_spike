@@ -14,5 +14,5 @@ test:
 
 general:
   artifacts:
-    - "build/rmprofile.pdf" # relative to the build directory
+    - "build/rmprofile.pdf"
 
