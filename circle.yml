@@ -5,6 +5,8 @@ machine:
 dependencies:
   cache_directories:
     - ".docker"
+ override:
+    - mkdir -p .docker
 
 test:
   override:
@@ -13,3 +15,4 @@ test:
 general:
   artifacts:
     - "build/rmprofile.pdf" # relative to the build directory
+
