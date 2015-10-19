@@ -5,3 +5,7 @@ machine:
 test:
   override:
     - make
+
+general:
+  artifacts:
+    - "build" # relative to the build directory
