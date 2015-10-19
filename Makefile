@@ -12,9 +12,10 @@ build/rmprofile.pdf: rmprofile.tex rmprofile.cls .docker/pdflatex.tar
 
 
 .docker/pdflatex.tar: pdflatex/Dockerfile
+	if [ -e $@ ]; then docker load -i $@; fi
 	docker build -t pdflatex pdflatex
 	mkdir -p .docker
-	docker save pdflatex > .docker/pdflatex.tar
+	docker save pdflatex > $@
 
 
 .PHONY: clean
