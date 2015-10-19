@@ -5,7 +5,7 @@ machine:
 dependencies:
   cache_directories:
     - ".docker"
- override:
+  override:
     - mkdir -p .docker
 
 test:
