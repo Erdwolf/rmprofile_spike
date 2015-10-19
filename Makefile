@@ -4,19 +4,22 @@ PDFLATEX := docker run -it -v `pwd`:/mnt -w /mnt pdflatex pdflatex
 PDFLATEX_OPTS := -interaction="nonstopmode" \
 	              -halt-on-error
 
-rmprofile.pdf: rmprofile.tex docker-pdflatex
+build/rmprofile.pdf: rmprofile.tex rmprofile.cls .docker/pdflatex.tar
 	rm -rf build
 	mkdir  build
+	docker load -i .docker/pdflatex.tar
 	${PDFLATEX} ${PDFLATEX_OPTS} -output-directory="build" $<
 
-.PHONY: docker-pdflatex clean
-docker-pdflatex: Dockerfile
+
+.docker/pdflatex.tar: Dockerfile
 	docker build -t pdflatex .
+	mkdir -p .docker
+	docker save pdflatex > .docker/pdflatex.tar
+
 
 .PHONY: clean
 clean:
-	rm -f rmprofile.pdf
-	rm -f rmprofile.aux
-	rm -f rmprofile.log
+	rm -rf build
+	rm -rf .docker
 	docker rmi pdflatex || return 0
 	@echo "cleaned."
