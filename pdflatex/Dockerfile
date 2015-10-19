@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 MAINTAINER Matthias Reinarz <mreinarz@thoughtworks.com>
 
