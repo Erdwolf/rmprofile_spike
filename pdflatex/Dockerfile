@@ -12,3 +12,4 @@ RUN apt-get install -y wget \
     && cp -r opensans/* $HOME/texmf/ \
     && rm -r opensans opensans.zip \
     && mktexlsr && updmap-sys --enable Map=opensans.map
+RUN echo "Bogus layer!"
