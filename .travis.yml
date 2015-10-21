@@ -5,3 +5,7 @@ services:
 
 script:
   - make
+  
+cache:
+  directories:
+    - /var/lib/docker
